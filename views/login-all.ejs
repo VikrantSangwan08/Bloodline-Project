@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- <h1 class="heading">
+  Welcome To Our Page
+</h1> -->
+
+
+  <title>Login Page</title>
+  <link rel="stylesheet" href="/css/login-all.css">
+</head>
+<body> 
+ 
+   <div class="background-image"></div>
+  <div class="form-container">
+    <h1> Log-In</h1>
+
+    <!-- this is vertical menu -->
+<div class="vertical-menu">
+  <select class="drop" name="dropdown_menu" size="1">
+    <option value="donor">Donor</option>
+    <option value="patient">Patient</option>
+    <option value="blodbanks">Bloodbanks</option>
+    <option value="hospital">Hospitals</option>
+    <option value="tasting_agency">Testing Agency</option>
+    <!-- testing agency -->
+  </select>
+  <!-- <a href="#" class="active">Donor </a>
+  <a href="#" class="active"> Patient</a>
+  <a href="#" class="active"> Bloodbanks</a>
+  <a href="#" class="active">Hospital </a>
+  <a href="#" class="active"> Testing agency</a>  -->
+</div>
+
+    <form action="/users/login" method="post">
+      <input type="text" placeholder="Username/Email" required>
+      <input type="password" placeholder="Password" required>
+      <input type="password" placeholder="confirm password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="http://127.0.0.1:5555/this%20is%20new/HTML/signup.html" target="_blank">Sign up</a>
+      <br>
+      <a href="http://127.0.0.1:5555/this%20is%20new/HTML/registration.html" target="_blank">Registration</a>
+    
+    </p>
+  </div> 
+  <!-- <div class="form-container2">
+    <h1>Login/Sign up</h1>
+    <form>
+      <input type="text" placeholder="Username" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="#">Sign up</a></p>
+  </div> -->
+  <!-- <div class="form-container3">
+    <h1> Hospital Login</h1>
+    <form>
+      <input type="text" placeholder="Username" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="#">Sign up</a></p>
+  </div> -->
+  
+</body>
+</html>
