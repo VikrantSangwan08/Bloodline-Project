@@ -1,6 +1,6 @@
 const User = require("../models/userModel");
 
-module.exports.user = function (req, res) {
+module.exports.profile = function (req, res) {
   return res.end("<h1>user profile</h1>");
 };
 
@@ -9,9 +9,14 @@ module.exports.registrationform = function (req, res) {
 };
 
 module.exports.loginform = function (req, res) {
-  return res.render("login-all");
+  return res.render("login-all", {
+    title: "BloodBanl | Login"
+  });
 };
 module.exports.register = function (req, res) {
+  if (req.isAuthenticated()) {
+    res.redirect("/users/login");
+  }
   const userData = req.body;
   console.log(userData);
   const user = new User(userData);
@@ -21,36 +26,23 @@ module.exports.register = function (req, res) {
     //   res.status(201).json({ message: "User registered successfully" })
     // )
     .save()
-    .then(() => res.redirect("/users/loginform"))
+    .then(() => res.redirect("/users/login"))
 
     .catch((err) => {
       console.error(err); // Log the error
       res.status(500).json({ error: "Error registering user" });
     });
 };
-
+// render the sign in page
 module.exports.login = function (req, res) {
-  const { email, password } = req.body;
-
-  User.findOne({ email: email })
-    .then((user) => {
-      if (!user) {
-        res.status(404).json({ error: "User not found" });
-      } else {
-        // Check if the password matches
-        if (user.password === password) {
-          res.status(200).json({ message: "Login successful" });
-        } else {
-          res.status(401).json({ error: "Invalid password" });
-        }
-      }
-      return res.redirect("/");
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).json({ error: "Error logging in" });
-    });
+  if (req.isAuthenticated()) {
+    res.redirect("/users/profile");
+  }
+  return res.render("login-all", {
+    title: "BloodBanl | Login"
+  });
 };
+
 //update a user
 exports.update = async function (req, res) {
   try {
@@ -94,3 +86,8 @@ exports.update = async function (req, res) {
 //     return res.status(500).send("Server Error");
 //   }
 // });
+
+// sign in and create a session for the user
+module.exports.createSession = function (req, res) {
+  return res.redirect("/");
+};
