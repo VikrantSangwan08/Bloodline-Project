@@ -10,16 +10,18 @@ const passport = require("passport");
 const passportLocal = require("./config/passport-local-strategy");
 const MongoStore = require("connect-mongodb-session")(session);
 const app = express();
+const path = require("path");
 // middleware
 app.use(
   express.urlencoded({
-    extended: true
+    extended: true,
   })
 );
 
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "/assets")));
 
-app.use(express.static("./assets"));
+// app.use(express.static("./assets"));
 
 app.use(expressLayouts);
 // extract style and scripts from sub pages into the layout
@@ -40,17 +42,17 @@ app.use(
     saveUninitialized: false,
     resave: false,
     cookie: {
-      maxAge: 1000 * 60 * 100
+      maxAge: 1000 * 60 * 100,
     },
     store: new MongoStore(
       {
         uri: "mongodb+srv://vikrant:vikrant123@bloodline.afkfsqe.mongodb.net/",
-        AutoRemove: "disabled"
+        AutoRemove: "disabled",
       },
       function (err) {
         console.log(err || "connect mongodb setup is ok");
       }
-    )
+    ),
   })
 );
 
