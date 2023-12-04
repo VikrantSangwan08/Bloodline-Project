@@ -7,7 +7,8 @@ router.post("/register", userController.register);
 router.post("/login", userController.login);
 // router.use("/profile", userController.profile);
 
-router.get("/registrationform", userController.registrationform);
+router.get("/registration", userController.registrationform);
+
 router.get("/login", userController.loginform);
 
 // // Route for updating a user

@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  padding: 5;
+  padding: 0;
 }
 
 a {
@@ -84,7 +84,7 @@ a {
 }
 
 .background {
-  background: rgb(0, 0, 0, 0.5) url("../images/website\ background-Month.jpg" );
+  background: rgb(0, 0, 0, 0.5) url(img/Blood-Donor-Month.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: darken;
@@ -479,6 +479,15 @@ a {
 .active,
 .menu-bar ul li:hover {
   background: #ffbb003c;
+  text-decoration: underline;
+
+
+}
+
+.active,
+.menu-bar ul li:hover {
+  background: #ffbb003c;
+  text-decoration: underline;
 
 
 }
@@ -492,8 +501,8 @@ a {
   display: block;
   position: absolute;
   background-color: #3d3c3cb7;
-  margin-top: 15px;
-  margin-left: -6px;
+  margin-top: 14px;
+  margin-left: -8px;
 
 
 

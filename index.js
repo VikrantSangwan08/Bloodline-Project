@@ -1,6 +1,6 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
-const port = 8000;
+const port = 5500;
 const connectDB = require("./config/mongoose");
 connectDB();
 const mongoose = require("mongoose");
