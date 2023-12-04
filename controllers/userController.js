@@ -17,7 +17,7 @@ module.exports.loginform = function (req, res) {
 };
 module.exports.register = function (req, res) {
   if (req.isAuthenticated()) {
-    res.redirect("/users/login");
+    res.redirect("/#");
   }
   const userData = req.body;
   console.log(userData);
@@ -28,7 +28,7 @@ module.exports.register = function (req, res) {
     //   res.status(201).json({ message: "User registered successfully" })
     // )
     .save()
-    .then(() => res.redirect("/users/login"))
+    .then(() => res.redirect("/#"))
 
     .catch((err) => {
       console.error(err); // Log the error
