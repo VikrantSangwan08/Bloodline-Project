@@ -5,12 +5,14 @@ module.exports.profile = function (req, res) {
 };
 
 module.exports.registrationform = function (req, res) {
-  return res.render("registration");
+  return res.render("registration", {
+    title: "Registration",
+  });
 };
 
 module.exports.loginform = function (req, res) {
   return res.render("login-all", {
-    title: "BloodBanl | Login"
+    title: "BloodBanl | Login",
   });
 };
 module.exports.register = function (req, res) {
@@ -39,7 +41,7 @@ module.exports.login = function (req, res) {
     res.redirect("/users/profile");
   }
   return res.render("login-all", {
-    title: "BloodBanl | Login"
+    title: "BloodBanl | Login",
   });
 };
 
